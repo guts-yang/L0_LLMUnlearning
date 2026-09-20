@@ -1,0 +1,197 @@
+<mxfile host="app" modified="2026-09-20T02:30:00.000Z" agent="WorkBuddy" version="21.0.0">
+  <diagram id="llm-unlearning-landscape" name="领域全景机制图">
+    <mxGraphModel dx="1420" dy="820" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1320" pageHeight="780" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="gold_label" value="Gold Standard / Retrain Reference" style="text;html=1;align=center;verticalAlign=middle;fontSize=11;fontColor=#888780;" vertex="1" parent="1">
+          <mxGeometry x="240" y="14" width="400" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="retrain" value="&lt;b&gt;重训反事实模型&lt;/b&gt;&lt;br&gt;M_-f = Train(D \ D_f)&lt;br&gt;&lt;font style=&quot;font-size:9px&quot; color=&quot;#5F5E5A&quot;&gt;Train from scratch&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;fillColor=#F5F5F5;strokeColor=#B4B2A9;fontSize=11;fontColor=#2C2C2A;" vertex="1" parent="1">
+          <mxGeometry x="240" y="35" width="180" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="formula_top" value="&lt;b style=&quot;font-size:14px&quot;&gt;Unlearn(M, D_f, D_r) ≈ M_-f&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;fillColor=#FFFFFF;strokeColor=#2C2C2A;strokeWidth=1.5;fontSize=12;fontColor=#2C2C2A;" vertex="1" parent="1">
+          <mxGeometry x="460" y="30" width="400" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="impossible_note" value="⚠ 重训等价在多阶段流水线下已被证明不可实现【424】；&quot;匹配 retrain oracle&quot;会放过仍含知识的模型【204】→ 目标需替换为可验证的删除定义" style="text;html=1;align=center;verticalAlign=middle;fontSize=9;fontColor=#A32D2D;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="460" y="86" width="400" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="mu" value="&lt;b&gt;实际遗忘模型&lt;/b&gt;&lt;br&gt;M_u" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;fillColor=#FFFFFF;strokeColor=#2C2C2A;strokeWidth=1.5;fontSize=11;fontColor=#2C2C2A;" vertex="1" parent="1">
+          <mxGeometry x="975" y="30" width="140" height="56" as="geometry" />
+        </mxCell>
+
+        <mxCell id="input_container" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=none;strokeColor=#5F5E5A;dashed=1;dashPattern=6 4;" vertex="1" parent="1">
+          <mxGeometry x="20" y="45" width="205" height="250" as="geometry" />
+        </mxCell>
+        <mxCell id="input_title" value="&lt;b&gt;输入层&lt;/b&gt;" style="text;html=1;align=left;verticalAlign=middle;fontSize=12;fontColor=#185FA5;" vertex="1" parent="1">
+          <mxGeometry x="32" y="52" width="80" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="pretrained" value="&lt;b&gt;预训练模型 M&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#B4B2A9&quot;&gt;▬▬▬▬▬▬▬&lt;br&gt;▬▬▬▬▬&lt;br&gt;▬▬▬&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;fillColor=#E6F1FB;strokeColor=#185FA5;fontSize=11;fontColor=#0C447C;" vertex="1" parent="1">
+          <mxGeometry x="35" y="82" width="175" height="72" as="geometry" />
+        </mxCell>
+        <mxCell id="request" value="&lt;b&gt;遗忘请求&lt;/b&gt;&lt;hr&gt;&lt;font color=&quot;#A32D2D&quot;&gt;忘集 D_f&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size:9px&quot; color=&quot;#5F5E5A&quot;&gt;（要删除的数据）&lt;/font&gt;&lt;br&gt;&lt;font color=&quot;#0F6E56&quot;&gt;留集 D_r&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size:9px&quot; color=&quot;#5F5E5A&quot;&gt;（要保留的数据）&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;fillColor=#FFFFFF;strokeColor=#B4B2A9;fontSize=11;fontColor=#2C2C2A;" vertex="1" parent="1">
+          <mxGeometry x="35" y="164" width="175" height="118" as="geometry" />
+        </mxCell>
+
+        <mxCell id="meta_banner" value="&lt;b&gt;抑制 ≠ 删除&lt;/b&gt;　—　概率被压低 ≠ 信息被移除 · 元挑战 C1（近似遗忘只优化输出分布，从不定义参数层的删除）" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FCEBEB;strokeColor=#A32D2D;strokeWidth=1.5;fontSize=12;fontColor=#791F1F;" vertex="1" parent="1">
+          <mxGeometry x="250" y="146" width="700" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="proj_c2" value="C2 时间维 · 再学习复活" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#FAEEDA;strokeColor=#BA7517;fontSize=10;fontColor=#633806;" vertex="1" parent="1">
+          <mxGeometry x="250" y="186" width="166" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="proj_c6" value="C6 部署维 · 量化复活" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#FAEEDA;strokeColor=#BA7517;fontSize=10;fontColor=#633806;" vertex="1" parent="1">
+          <mxGeometry x="428" y="186" width="166" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="proj_c8" value="C8 载体维 · 新架构泄漏(CoT/MoE)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#FCEBEB;strokeColor=#A32D2D;fontSize=10;fontColor=#791F1F;" vertex="1" parent="1">
+          <mxGeometry x="606" y="186" width="166" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="proj_c3" value="C3 度量维 · 指标不可靠" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#FAEEDA;strokeColor=#BA7517;fontSize=10;fontColor=#633806;" vertex="1" parent="1">
+          <mxGeometry x="784" y="186" width="166" height="28" as="geometry" />
+        </mxCell>
+
+        <mxCell id="exec_container" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=6;fillColor=#FFFDF5;strokeColor=#BA7517;" vertex="1" parent="1">
+          <mxGeometry x="250" y="228" width="700" height="352" as="geometry" />
+        </mxCell>
+        <mxCell id="exec_title" value="&lt;b&gt;执行层 · 机制谱系&lt;/b&gt;（按「对什么对象施加什么算子」划分 · 10 支 + 1 横切轴）" style="text;html=1;align=left;verticalAlign=middle;fontSize=13;fontColor=#633806;" vertex="1" parent="1">
+          <mxGeometry x="266" y="234" width="560" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="skeleton_formula" value="共享优化骨架：&lt;b&gt;min_θ  L_f(θ; D_f) + λ·L_r(θ; D_r)&lt;/b&gt;　（让它忘 + 防止塌缩）&lt;br&gt;&lt;font style=&quot;font-size:9px&quot; color=&quot;#888780&quot;&gt;⚠ 标量化加权和不保证逐样本改善【HAMU】【OFMU】→ 约束 / 多目标范式（G 族）&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#BA7517;fontSize=11;fontColor=#2C2C2A;" vertex="1" parent="1">
+          <mxGeometry x="268" y="260" width="664" height="48" as="geometry" />
+        </mxCell>
+
+        <mxCell id="col_suppress" value="&lt;b&gt;压 Suppress&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:9px&quot;&gt;压低答案概率&lt;/font&gt;&lt;hr&gt;&lt;b&gt;A 梯度上升/偏好族&lt;/b&gt;&lt;br&gt;GA → NPO → &lt;b&gt;SimNPO&lt;/b&gt;&lt;br&gt;UNDIAL · AltPO&lt;br&gt;&lt;b&gt;★K 强化/奖励族 (2026)&lt;/b&gt;&lt;br&gt;RULE · PURGE · ReRULE&lt;hr&gt;&lt;font style=&quot;font-size:9px&quot; color=&quot;#A32D2D&quot;&gt;代价: 无上界崩溃 · 语义挤压【BS】&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FCEBEB;strokeColor=#D85A30;fontSize=10;fontColor=#2C2C2A;verticalAlign=top;spacingTop=4;" vertex="1" parent="1">
+          <mxGeometry x="268" y="316" width="158" height="188" as="geometry" />
+        </mxCell>
+        <mxCell id="col_replace" value="&lt;b&gt;换 Replace&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:9px&quot;&gt;替换输出/表征路径&lt;/font&gt;&lt;hr&gt;&lt;b&gt;E 蒸馏/自蒸馏族&lt;/b&gt;&lt;br&gt;SCRUB · FLAT · Unilogit&lt;br&gt;&lt;b&gt;C 表征/子空间族&lt;/b&gt;&lt;br&gt;RMU · LUNAR · SAE 干预&lt;hr&gt;&lt;font style=&quot;font-size:9px&quot; color=&quot;#A32D2D&quot;&gt;代价: 乱码教师带偏能力 · 均匀目标仅保证不确定性&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#EAF3DE;strokeColor=#639922;fontSize=10;fontColor=#2C2C2A;verticalAlign=top;spacingTop=4;" vertex="1" parent="1">
+          <mxGeometry x="434" y="316" width="158" height="188" as="geometry" />
+        </mxCell>
+        <mxCell id="col_locate" value="&lt;b&gt;控 Locate&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:9px&quot;&gt;定位参数/子空间手术&lt;/font&gt;&lt;hr&gt;&lt;b&gt;B 定位/稀疏族&lt;/b&gt;&lt;br&gt;SalUn · WAGLE · ALTER&lt;br&gt;&lt;b&gt;D 免训练/权重算术&lt;/b&gt;&lt;br&gt;NegMerge · GROM · TaskVec&lt;hr&gt;&lt;font style=&quot;font-size:9px&quot; color=&quot;#A32D2D&quot;&gt;代价: 高遗忘比例容量不足 · 量化即复活【54】&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#E6F1FB;strokeColor=#378ADD;fontSize=10;fontColor=#2C2C2A;verticalAlign=top;spacingTop=4;" vertex="1" parent="1">
+          <mxGeometry x="600" y="316" width="158" height="188" as="geometry" />
+        </mxCell>
+        <mxCell id="col_intercept" value="&lt;b&gt;拦 Intercept&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:9px&quot;&gt;推理时/系统级拦截&lt;/font&gt;&lt;hr&gt;&lt;b&gt;F 上下文/系统族&lt;/b&gt;&lt;br&gt;ICUL · ERASE · Agent 工作流&lt;br&gt;&lt;b&gt;解码干预&lt;/b&gt;&lt;br&gt;UCD · ST2U · 门控激活&lt;hr&gt;&lt;font style=&quot;font-size:9px&quot; color=&quot;#A32D2D&quot;&gt;代价: 可被越狱绕过 · 抑制非删除【189】&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#EEEDFE;strokeColor=#534AB7;fontSize=10;fontColor=#2C2C2A;verticalAlign=top;spacingTop=4;" vertex="1" parent="1">
+          <mxGeometry x="766" y="316" width="158" height="188" as="geometry" />
+        </mxCell>
+
+        <mxCell id="guardrail" value="🛡 &lt;b&gt;保留能力护栏&lt;/b&gt;：Retain CE · KL 对齐 · 锚定原模型表示　→　过度则: 知识空洞【416】/ 跨域涌现性失准【404】" style="rounded=1;whiteSpace=wrap;html=1;arcSize=10;fillColor=#E1F5EE;strokeColor=#0F6E56;fontSize=11;fontColor=#085041;" vertex="1" parent="1">
+          <mxGeometry x="268" y="514" width="664" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="crosscut" value="横切轴 J：多模态 MLLM / 扩散 / 图 / 联邦　｜　I：可认证 / 理论极限（SISA · DP · 复杂度）　｜　G：约束/多目标/博弈（HAMU · OFMU · EUPMU）　｜　H：持续/顺序遗忘（O³ · TFR-Net）" style="text;html=1;align=center;verticalAlign=middle;fontSize=9;fontColor=#5F5E5A;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="268" y="552" width="664" height="22" as="geometry" />
+        </mxCell>
+
+        <mxCell id="eval_panel" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=6;fillColor=#FFFFFF;strokeColor=#185FA5;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="985" y="150" width="325" height="400" as="geometry" />
+        </mxCell>
+        <mxCell id="eval_title" value="&lt;b&gt;遗忘评估面板（综合评估）&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;fontSize=13;fontColor=#0C447C;" vertex="1" parent="1">
+          <mxGeometry x="985" y="156" width="325" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="eval_header" value="维度　　　　　　　　　　关键指标　　　　　　　基准" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E6F1FB;strokeColor=#85B7EB;fontSize=10;fontColor=#0C447C;align=left;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="995" y="184" width="305" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="eval_r1" value="&lt;b&gt;1. 遗忘效力&lt;/b&gt;&lt;br&gt;FQ(KS p 值) · &lt;b&gt;ES/EM★&lt;/b&gt;元评估最可靠&lt;br&gt;1-ROUGE · 概率&lt;br&gt;&lt;font color=&quot;#185FA5&quot;&gt;基准: TOFU(虚构/有金标)&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#F5F9FD;strokeColor=#B5D4F4;fontSize=10;fontColor=#2C2C2A;align=left;spacingLeft=6;" vertex="1" parent="1">
+          <mxGeometry x="995" y="210" width="305" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="eval_r2" value="&lt;b&gt;2. 保留效用&lt;/b&gt;&lt;br&gt;Model Utility · MMLU · KnowMem&lt;br&gt;邻域集 / 知识空洞探针【416】&lt;br&gt;&lt;font color=&quot;#185FA5&quot;&gt;基准: MUSE(真实版权/隐私·六维)&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#F5F9FD;strokeColor=#B5D4F4;fontSize=10;fontColor=#2C2C2A;align=left;spacingLeft=6;" vertex="1" parent="1">
+          <mxGeometry x="995" y="276" width="305" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="eval_r3" value="&lt;b&gt;3. 隐私&lt;/b&gt;&lt;br&gt;PrivLeak→0 · MIA(高忠实但脆弱△)&lt;br&gt;Leak@k(概率解码下全线泄漏【410】)&lt;br&gt;&lt;font color=&quot;#185FA5&quot;&gt;基准: WMDP / UnlearnPII&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#F5F9FD;strokeColor=#B5D4F4;fontSize=10;fontColor=#2C2C2A;align=left;spacingLeft=6;" vertex="1" parent="1">
+          <mxGeometry x="995" y="342" width="305" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="eval_r4" value="&lt;b&gt;4. 鲁棒与成本&lt;/b&gt;&lt;br&gt;再学习存活率 · 量化存活率【54】&lt;br&gt;GPU-hours / 峰值显存&lt;br&gt;&lt;font color=&quot;#185FA5&quot;&gt;基准: RWKU / LeakRU / 2510.00761&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#F5F9FD;strokeColor=#B5D4F4;fontSize=10;fontColor=#2C2C2A;align=left;spacingLeft=6;" vertex="1" parent="1">
+          <mxGeometry x="995" y="408" width="305" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="eval_r5" value="&lt;b&gt;★5. 部署鲁棒（v2 新增）&lt;/b&gt;&lt;br&gt;格点存活率 DFQ = 部署后有效遗忘率&lt;br&gt;（27 格点：位宽×稀疏×微调）&lt;br&gt;&lt;font color=&quot;#A32D2D&quot;&gt;基准: 自建格点协议（空白·本组主攻）&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FCEBEB;strokeColor=#A32D2D;fontSize=10;fontColor=#2C2C2A;align=left;spacingLeft=6;" vertex="1" parent="1">
+          <mxGeometry x="995" y="474" width="305" height="66" as="geometry" />
+        </mxCell>
+
+        <mxCell id="conclusion" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#1F3A5F;strokeColor=#0C447C;" vertex="1" parent="1">
+          <mxGeometry x="985" y="565" width="325" height="185" as="geometry" />
+        </mxCell>
+        <mxCell id="conclusion_title" value="&lt;b&gt;结论（理想遗忘目标）&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;fontSize=13;fontColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="985" y="572" width="325" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="conclusion_badges" value="&lt;font color=&quot;#F09595&quot;&gt;忘得掉&lt;/font&gt;　&lt;font color=&quot;#9FE1CB&quot;&gt;留得住&lt;/font&gt;　&lt;font color=&quot;#FAC775&quot;&gt;攻不回&lt;/font&gt;　&lt;font color=&quot;#B5D4F4&quot;&gt;★格点上稳&lt;/font&gt;&lt;br&gt;&lt;font color=&quot;#CECBF6&quot;&gt;可审计&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;fontSize=13;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="995" y="598" width="305" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="conclusion_line" value="&lt;font color=&quot;#B5D4F4&quot;&gt;领域主线 2023→2026：&lt;/font&gt;&lt;br&gt;&lt;font color=&quot;#FFFFFF&quot;&gt;能不能忘 → 会不会复活 → 指标可信吗&lt;br&gt;→ 新架构与真实系统&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size:9px&quot; color=&quot;#FAC775&quot;&gt;强化遗忘★ · 推理模型答案级盲区 · 格点不变★本组 · 可验证遗忘&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;fontSize=10;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="995" y="652" width="305" height="92" as="geometry" />
+        </mxCell>
+
+        <mxCell id="loop_1" value="🎲&lt;br&gt;&lt;b&gt;概率采样&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:9px&quot; color=&quot;#A32D2D&quot;&gt;Leak@k 全线泄漏【410】&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#FAEEDA;strokeColor=#BA7517;fontSize=10;fontColor=#633806;" vertex="1" parent="1">
+          <mxGeometry x="30" y="612" width="108" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="loop_2" value="✍️&lt;br&gt;&lt;b&gt;提示改写&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:9px&quot; color=&quot;#A32D2D&quot;&gt;遗忘海市蜃楼【313】&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#FAEEDA;strokeColor=#BA7517;fontSize=10;fontColor=#633806;" vertex="1" parent="1">
+          <mxGeometry x="150" y="612" width="108" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="loop_3" value="🌳&lt;br&gt;&lt;b&gt;多跳提问&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:9px&quot; color=&quot;#A32D2D&quot;&gt;LeakRU 多跳路径【160】&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#FAEEDA;strokeColor=#BA7517;fontSize=10;fontColor=#633806;" vertex="1" parent="1">
+          <mxGeometry x="270" y="612" width="108" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="loop_4" value="🌐&lt;br&gt;&lt;b&gt;跨语言访问&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:9px&quot; color=&quot;#A32D2D&quot;&gt;steering 恢复 90%【2606】&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#FAEEDA;strokeColor=#BA7517;fontSize=10;fontColor=#633806;" vertex="1" parent="1">
+          <mxGeometry x="390" y="612" width="108" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="loop_5" value="🌅&lt;br&gt;&lt;b&gt;良性微调唤醒&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:9px&quot; color=&quot;#A32D2D&quot;&gt;【174】ICLR 2025&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#FAEEDA;strokeColor=#BA7517;fontSize=10;fontColor=#633806;" vertex="1" parent="1">
+          <mxGeometry x="510" y="612" width="108" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="loop_6" value="💾&lt;br&gt;&lt;b&gt;4-bit 量化&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:9px&quot; color=&quot;#A32D2D&quot;&gt;21% → 83%【54】&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#FAEEDA;strokeColor=#BA7517;fontSize=10;fontColor=#633806;" vertex="1" parent="1">
+          <mxGeometry x="630" y="612" width="108" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="loop_7" value="🔧&lt;br&gt;&lt;b&gt;LoRA 再学习&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:9px&quot; color=&quot;#A32D2D&quot;&gt;表征次要成分【264】&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#FAEEDA;strokeColor=#BA7517;fontSize=10;fontColor=#633806;" vertex="1" parent="1">
+          <mxGeometry x="750" y="612" width="108" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="loop_8" value="🎭&lt;br&gt;&lt;b&gt;MIA 推断&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:9px&quot; color=&quot;#A32D2D&quot;&gt;高忠实但脆弱【154】&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#FAEEDA;strokeColor=#BA7517;fontSize=10;fontColor=#633806;" vertex="1" parent="1">
+          <mxGeometry x="870" y="612" width="108" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="loop_caption" value="&lt;b&gt;压力测试反馈环&lt;/b&gt;：知识能否被重新唤醒？&lt;br&gt;（攻击后仍忘 = 遗忘合格的必要条件）" style="text;html=1;align=left;verticalAlign=middle;fontSize=11;fontColor=#854F0B;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="40" y="690" width="420" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="lattice_box" value="★&lt;b&gt;部署格点 G = 位宽 × 稀疏率 × 微调 × 蒸馏&lt;/b&gt;&lt;br&gt;54 格组合 · 0 篇系统验证（量化×剪枝×微调同时施加）&lt;br&gt;&lt;font color=&quot;#A32D2D&quot;&gt;—— 本组主攻：格点不变遗忘 + DFQ 指标&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;fillColor=#FFFFFF;strokeColor=#A32D2D;strokeWidth=1.5;dashed=1;fontSize=10;fontColor=#791F1F;" vertex="1" parent="1">
+          <mxGeometry x="490" y="688" width="488" height="58" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e_input_formula" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#378ADD;strokeWidth=1.5;endArrow=block;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="input_container" target="formula_top">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_formula_mu" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#378ADD;strokeWidth=1.5;endArrow=block;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="formula_top" target="mu">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_golden" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#888780;strokeWidth=1;dashed=1;endArrow=open;startArrow=open;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="retrain" target="mu">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="700" y="14" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_mu_eval" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#378ADD;strokeWidth=1.5;endArrow=block;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="mu" target="eval_panel">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_meta_exec" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#A32D2D;strokeWidth=1;endArrow=block;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="meta_banner" target="exec_container">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_eval_loop" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#D85A30;strokeWidth=1.5;dashed=1;dashPattern=6 4;endArrow=block;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="eval_panel" target="loop_8">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1148" y="598" />
+              <mxPoint x="924" y="598" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_loop_back" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#D85A30;strokeWidth=1.5;dashed=1;dashPattern=6 4;endArrow=block;exitX=0;exitY=0.5;entryX=0;entryY=1;" edge="1" parent="1" source="loop_1" target="input_container">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_g1" style="edgeStyle=none;html=1;strokeColor=#378ADD;strokeWidth=1;endArrow=block;exitX=0.15;exitY=0;entryX=0.5;entryY=1;" edge="1" parent="1" source="guardrail" target="col_suppress">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_g2" style="edgeStyle=none;html=1;strokeColor=#378ADD;strokeWidth=1;endArrow=block;exitX=0.38;exitY=0;entryX=0.5;entryY=1;" edge="1" parent="1" source="guardrail" target="col_replace">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_g3" style="edgeStyle=none;html=1;strokeColor=#378ADD;strokeWidth=1;endArrow=block;exitX=0.62;exitY=0;entryX=0.5;entryY=1;" edge="1" parent="1" source="guardrail" target="col_locate">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_g4" style="edgeStyle=none;html=1;strokeColor=#378ADD;strokeWidth=1;endArrow=block;exitX=0.85;exitY=0;entryX=0.5;entryY=1;" edge="1" parent="1" source="guardrail" target="col_intercept">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
